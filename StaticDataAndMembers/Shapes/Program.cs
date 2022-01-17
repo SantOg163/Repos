@@ -22,7 +22,6 @@ namespace Shapes
             о.Draw();
             // Здесь вызывается метод Draw(), определенный в родительском классе!
             ((Circle)о).Draw();
-
             Console.ReadKey();
         }
     }
