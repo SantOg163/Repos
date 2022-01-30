@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MI_InterfaceHierarchy
 {
-    internal interface IShape : IPrintable, IDrawable
+    interface IShape : IPrintable, IDrawable
     {
     }
     interface IPrintable
