@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleDelegate
+namespace CarDelegateMethodGroupConversion
 {
     internal class Car
     {
@@ -13,7 +13,7 @@ namespace SimpleDelegate
         public int MaxSpeed { get; set; } = 100;
         public string PetName { get; set; }
         // Исправен ли автомобиль?
-        private bool carlsDead;
+        private bool carIsDead;
         // Конструкторы класса,
         public Car() { }
         public Car(string name, int maxSp, int currSp)
@@ -43,7 +43,7 @@ namespace SimpleDelegate
         // вызовов делегата в подходящих обстоятельствах.
         public void Accelerate(int delta)
         {
-            if (carlsDead)
+            if (carIsDead)
             {
                 if (listOfHandlers != null)
                     Console.WriteLine("Car is dead");
@@ -54,7 +54,7 @@ namespace SimpleDelegate
             if(MaxSpeed - CurrentSpeed == 10 && listOfHandlers != null)
                 Console.WriteLine("Почти сломалась");
             if (CurrentSpeed > MaxSpeed)
-                carlsDead = true;
+                carIsDead = true;
             else
                 Console.WriteLine("CurrentSpeed = " + CurrentSpeed);
         }
