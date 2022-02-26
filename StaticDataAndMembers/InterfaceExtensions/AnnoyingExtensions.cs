@@ -8,7 +8,7 @@ namespace InterfaceExtensions
 {
     static class AnnoyingExtension
     {
-        public ex
+        
         public static void PrintDataAndBeep(this System.Collections.IEnumerable iterator)
         {
             foreach(var item in iterator)

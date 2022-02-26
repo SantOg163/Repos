@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,18 +20,29 @@ namespace ListOverCollections
                 new Car { petName = "Melvin" , Color = "White ", Speed = 43, Make = "Ford"}
             };
             GetFastCars(cars);
+            OfTypeAsFilter();
             Console.ReadKey();
         }
         static void GetFastCars(List<Car> cars)
         {
-            // Найти в Listo все объекты Car, у которых значение Speed больше 55.
-            var fastCars = from c in cars where c.Speed > 55 select c;
+            // Трансформировать ArrayList в тип, совместимый c IEnumerable<T>.
+            var myCarsEnum = cars.OfType<Car>() ;
+            // Создать выражение запроса, нацеленное на совместимый с IEnumerable<T> тип.
+            var fastCars = from c in myCarsEnum where c.Speed > 55 select c;
             foreach (var car in fastCars)
+                Console.WriteLine("{0} is going too fast", car.petName);
+        }
+        static void OfTypeAsFilter()
+        {
+            // Извлечь из ArrayList целочисленные значения.
+            ArrayList myStuff = new ArrayList();
+            myStuff.AddRange(new object[] { 10, 400, 8, false, new Car(), "string data" });
+            var mylnts = myStuff.OfType<int>();
+            // Выводит 10, 400 и 8.
+            foreach (int i in mylnts)
             {
-                Console.WriteLine("{ 0} is going too fast", car.petName);
+                Console.WriteLine("Int value: {0}", i);
             }
-
-
         }
     }
 }
