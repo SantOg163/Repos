@@ -26,27 +26,27 @@ namespace DataProviderFactory
                     ShowError("Connection");
                     return;
                 }
-                    Console.WriteLine($"Your connection object is a: {connection.GetType().Name}");
-                    connection.ConnectionString = connectionstring;
-                    connection.Open();
-                    // Создать объект команды.
-                    DbCommand command = factory.CreateCommand();
-                    if (command == null)
-                    {
-                        ShowError("Command");
-                        return;
-                    }
-                    Console.WriteLine($"Your command object is a: {command.GetType().Name}");
-                    command.Connection = connection;
-                    command.CommandText = "Select * From Inventory";
-                    using (DbDataReader dataReader = command.ExecuteReader())
-                    {
-                        Console.WriteLine("Ваш объект чтения данных — это " + dataReader.GetType().Name);
-                        while (dataReader.Read())
-                            Console.WriteLine($"-> Car #{dataReader["Carld"] } is a {dataReader["Make"]}.");
-                    }
-                    Console.ReadLine();
-                
+                Console.WriteLine($"Your connection object is a: {connection.GetType().Name}");
+                connection.ConnectionString = connectionstring;
+                connection.Open();
+                // Создать объект команды.
+                DbCommand command = factory.CreateCommand();
+                if (command == null)
+                {
+                    ShowError("Command");
+                    return;
+                }
+                Console.WriteLine($"Your command object is a: {command.GetType().Name}");
+                command.Connection = connection;
+                command.CommandText = "Select * From Inventory";
+                using (DbDataReader dataReader = command.ExecuteReader())
+                {
+                    Console.WriteLine("Ваш объект чтения данных — это " + dataReader.GetType().Name);
+                    while (dataReader.Read())
+                        Console.WriteLine($"-> Car #{dataReader["CarID"] } is a {dataReader["Make"]}.");
+                }
+                Console.ReadLine();
+
             }
         }
         private static void ShowError(string objectName)
