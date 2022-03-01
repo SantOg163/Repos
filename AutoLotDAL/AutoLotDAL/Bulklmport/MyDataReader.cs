@@ -11,6 +11,11 @@ namespace AutoLotDAL.Bulklmport
     public class MyDataReader<T> : IMyDataReader<T>
     {
         private int _currentIndex = -1;
+
+        public MyDataReader(List<T> ts)
+        {
+        }
+
         public bool Read()
         {
             if ((_currentIndex + 1) >= Records.Count) return false;

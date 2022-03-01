@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoLotDAL.DataOperations;
 using AutoLotDAL.Models;
+using AutoLotDAL.Bulklmport;
+using System.Collections;
 
 namespace AutoLotClient
 {
@@ -50,7 +52,23 @@ namespace AutoLotClient
             // Для продолжения нажмите <Enter>...
             Console.ReadLine();
         }
-        public static void MoveCustomer()
+        public static void DoBulkCopy()
+        {
+            List<Car> cars = new List<Car>()
+            {
+                new Car(){Color = "Blue", Make = "Honda", PetName = "MyCarl"},
+                new Car(){Color = "Red", Make = "Volvo", PetName = "MyCar2" },
+                new Car() { Color = "White", Make = "VW", PetName = "МуСагЗ" },
+                new Car() { Color = "Yellow", Make = "Toyota", PetName = "MyCar4" }
+            };
+            ProcessBulkImport<Car>.ExecuteBulkImport(cars, "Inventory");
+            InventoryDAL dal = new InventoryDAL();
+            var list = dal.GetAllInventory();
+            foreach (var itm in list)
+                Console.WriteLine($"{itm.CarId}\t{itm.Make}\t{itm.Color}\t{itm.PetName}");
+            Console.WriteLine();
+        }
+    public static void MoveCustomer()
         {
             // Простой способ позволить транзакции успешно завершиться или отказать,
             bool throwEx = true;
