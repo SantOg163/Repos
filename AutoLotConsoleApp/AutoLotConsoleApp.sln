@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotConsoleApp", "AutoLotConsoleApp\AutoLotConsoleApp.csproj", "{E2B9A21A-6F24-457A-806E-6186D116AE2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL", "AutoLotDAL\AutoLotDAL.csproj", "{3BF7E332-3A92-4F07-9024-87FAC95CFD55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E2B9A21A-6F24-457A-806E-6186D116AE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2B9A21A-6F24-457A-806E-6186D116AE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2B9A21A-6F24-457A-806E-6186D116AE2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF7E332-3A92-4F07-9024-87FAC95CFD55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF7E332-3A92-4F07-9024-87FAC95CFD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF7E332-3A92-4F07-9024-87FAC95CFD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF7E332-3A92-4F07-9024-87FAC95CFD55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
