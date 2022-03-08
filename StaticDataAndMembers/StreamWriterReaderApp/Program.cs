@@ -12,13 +12,14 @@ namespace StreamWriterReaderApp
         static void Main(string[] args)
         {
             // Получить объект StreamWriter и записать строковые данные.(в bin\debug)
-            using (StreamWriter writer = File.CreateText("reminders.txt"))
-            {
-                writer.WriteLine("Name: SanT OG");
-                writer.WriteLine("Number: 23");
-                // Вставить новую строку.
-                writer.Write(writer.NewLine);
-            }
+            for(int i = 0; i < 10; i++)
+                using (StreamWriter writer = new StreamWriter($@"C:\Users\ssant\Desktop\ada{i}.txt"))
+                {
+                    writer.WriteLine("Name: SanT OG");
+                    writer.WriteLine("Number: 23");
+                    // Вставить новую строку.
+                    writer.Write(writer.NewLine);
+                }
             using (StreamReader reader = File.OpenText("reminders.txt"))
             {
                 string input = null;
