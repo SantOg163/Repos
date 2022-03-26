@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:SpinningButtonAnimationApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btnSpinner" Width="100" Height="50" Content="I Spin" MouseEnter="btnSpinner_MouseEnter" Click="btnSpinner_OnClick"/>
-    </Grid>
-</Window>
+<Grid>
+        <Button x:Name="btnSpinner" Click="btnSpinner_OnClick" Height="50" Width="100" MouseEnter="btnSpinner_MouseEnter"/>
+    </Grid></Window>

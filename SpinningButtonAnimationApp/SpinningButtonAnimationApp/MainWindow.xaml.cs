@@ -56,6 +56,8 @@ namespace SpinningButtonAnimationApp
                 From = 1.0,
                 To = 0.0
             };
+            // После завершения запустить в обратном порядке
+            dblAnim.AutoReverse = true;
             btnSpinner.BeginAnimation(Button.OpacityProperty, dblAnim);
         }
     }
