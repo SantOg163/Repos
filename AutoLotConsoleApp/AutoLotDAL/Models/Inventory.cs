@@ -1,4 +1,4 @@
-namespace AutoLotDAL.Models
+namespace AutoLotDAL.EF
 {
     using System;
     using System.Collections.Generic;
@@ -24,10 +24,10 @@ namespace AutoLotDAL.Models
         [StringLength(50)]
         public string Color { get; set; }
 
-        [StringLength(50), Column("PetName")]
+        [StringLength(50)]
         public string PetName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; } = new HashSet<Orders>();
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

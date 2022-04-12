@@ -41,6 +41,7 @@ namespace BinaryResourcesApp
                 _images.Add(new BitmapImage(new Uri(@"/Images/Welcome.jpg", UriKind.Relative)));
                 // Показать первое изображение в списке.
                 ImageHolder.Source = _images[_currentImage];
+                MessageBox.Show(ImageHolder.Source.ToString());
             }
             catch (Exception ex)
             {
@@ -50,7 +51,7 @@ namespace BinaryResourcesApp
 
         private void btnPreviousImage_Click(object sender, RoutedEventArgs e)
         {
-            if(_currentImage<0)
+            if(--_currentImage<0)
                 _currentImage = _images.Count - 1;
             ImageHolder.Source = _images[_currentImage];
         }

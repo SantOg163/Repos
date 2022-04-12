@@ -1,4 +1,4 @@
-namespace AutoLotDAL.Models
+namespace AutoLotDAL.EF
 {
     using System;
     using System.Collections.Generic;

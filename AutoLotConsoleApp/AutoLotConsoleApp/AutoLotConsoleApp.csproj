@@ -53,11 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\AutoLotEntities.cs" />
-    <Compile Include="EF\CarPartial.cs" />
-    <Compile Include="EF\CreditRisks.cs" />
-    <Compile Include="EF\Customers.cs" />
-    <Compile Include="EF\Car.cs" />
-    <Compile Include="EF\Orders.cs" />
+    <Compile Include="Models\CarPartial.cs" />
+    <Compile Include="Models\CreditRisks.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Orders.cs" />
     <Compile Include="EF\sysdiagrams.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

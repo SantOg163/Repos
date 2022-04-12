@@ -1,4 +1,4 @@
-namespace AutoLotDAL.Models
+namespace AutoLotDAL.EF
 {
     using System;
     using System.Collections.Generic;
@@ -24,8 +24,6 @@ namespace AutoLotDAL.Models
         public string LastName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; } = new HashSet<Orders>();
-        [NotMapped]
-        public string FullName => $"{FirstName} {LastName}";
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

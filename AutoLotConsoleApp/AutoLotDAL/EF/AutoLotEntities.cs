@@ -7,13 +7,14 @@ namespace AutoLotDAL.EF
 {
     public partial class AutoLotEntities : DbContext
     {
-        public AutoLotEntities() : base("name=AutoLotEntities")
+        public AutoLotEntities()
+            : base("name=AutoLotEntities")
         {
         }
 
         public virtual DbSet<CreditRisks> CreditRisks { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Inventory> Cars { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
@@ -24,9 +25,9 @@ namespace AutoLotDAL.EF
                 .WithRequired(e => e.Customers)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Car>()
+            modelBuilder.Entity<Inventory>()
                 .HasMany(e => e.Orders)
-                .WithRequired(e => e.Car)
+                .WithRequired(e => e.Inventory)
                 .WillCascadeOnDelete(false);
         }
     }

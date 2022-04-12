@@ -8,54 +8,8 @@ using System.Collections;
 
 namespace WpfValidations.Models
 {
-    public partial class Inventory : IDataErrorInfo, INotifyDataErrorInfo
+    public partial class Inventory : EntityBase, IDataErrorInfo, INotifyDataErrorInfo
     {
-        private readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
-        public bool HasErrors => _errors.Count != 0;
-
-        public string Error => throw new NotImplementedException();
-
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
-        private void OnErrorsChanged(string propertyName) => ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            if (string.IsNullOrEmpty(propertyName))
-                return _errors.Values;
-            return _errors.ContainsKey(propertyName) ? _errors[propertyName] : null;
-        }
-        private void AddError(string propertyName, string error) => AddErrors(propertyName, new List<string> { error });
-        private void AddErrors(string propertyName, IList<string> errors)
-        {
-            var changed = false;
-            if (!errors.Contains(propertyName))
-            {
-                _errors.Add(propertyName, new List<string>());
-                changed = true;
-            }
-            foreach (var error in errors)
-            {
-                if (_errors[propertyName].Contains(error))
-                    continue;
-                _errors[propertyName].Add(error);
-                changed = true;
-            }
-            if (changed)
-                OnErrorsChanged(propertyName);
-        }
-        protected void ClearErrors(string propertyName = "")
-        {
-            if (string.IsNullOrEmpty(propertyName))
-                _errors.Clear();
-            else
-                _errors.Remove(propertyName);
-            OnErrorsChanged(propertyName);
-        }
-        /*IDataErrorInfo*/
-        //private string _error;
-        //public string Error => _error;
-
         public string this[string columnName]
         {
             get
@@ -64,6 +18,7 @@ namespace WpfValidations.Models
                 switch (columnName)
                 {
                     case nameof(CarId):
+                        AddErrors(nameof(CarId), GetErrorsFromAnnotations(nameof(CarId), CarId));
                         break;
                     case nameof(Make):
                         hasError = CheckMakeAndColor();
@@ -78,6 +33,7 @@ namespace WpfValidations.Models
                             ClearErrors(nameof(Make));
                             ClearErrors(nameof(Color));
                         }
+                        AddErrors(nameof(Make), GetErrorsFromAnnotations(nameof(Make), Make));
                         break;
                     case nameof(Color):
                         hasError = CheckMakeAndColor();
@@ -86,8 +42,10 @@ namespace WpfValidations.Models
                             ClearErrors(nameof(Make));
                             ClearErrors(nameof(Color));
                         }
+                        AddErrors(nameof(Color), GetErrorsFromAnnotations(nameof(Color), Color));
                         break;
                     case nameof(PetName):
+                        AddErrors(nameof(PetName), GetErrorsFromAnnotations(nameof(PetName), PetName));
                         break;
                 }
                 return string.Empty;
